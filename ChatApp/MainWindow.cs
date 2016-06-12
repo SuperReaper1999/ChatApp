@@ -24,12 +24,13 @@ namespace ChatApp
 
         private void MainWindow_FormClosed(object sender, FormClosedEventArgs e)
         {
+            Console.WriteLine("Hey I closed!");
             ChatSessionWindow.chatSessionWindow.Show();
+            Server.DisconnectClients();
         }
 
         private void disconnectToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            RemoteClient.tcpClient.Close();
             Server.DisconnectClients();
         }
     }

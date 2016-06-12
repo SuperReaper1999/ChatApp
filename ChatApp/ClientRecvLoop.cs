@@ -31,8 +31,8 @@ namespace ChatApp
                     data = Encoding.UTF8.GetString(bytes, 0, i);
                     Console.WriteLine("Recieved: {0}", data);
                 }
-                mainWindow.Close();
                 Console.WriteLine("the loop has ended!");
+                mainWindow.Close();
             }
             catch (Exception e)
             {

@@ -85,6 +85,7 @@ namespace ChatApp
             this.Name = "ChatSessionWindow";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "ChatSessionWindow";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.ChatSessionWindow_FormClosing);
             this.ResumeLayout(false);
             this.PerformLayout();
 

@@ -11,7 +11,7 @@ namespace ChatApp
 {
     class RemoteClient
     {
-        public static TcpClient tcpClient;
+        public TcpClient tcpClient;
         public string clientName;
         public bool hasRecievedUsername = false;
 

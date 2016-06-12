@@ -51,5 +51,11 @@ namespace ChatApp
             Thread serverThread = new Thread(new ThreadStart(server.Main));
             serverThread.Start();
         }
+
+        private void ChatSessionWindow_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            Server.DisconnectClients();
+            Console.WriteLine("Hey I closed!" + this);
+        }
     }
 }

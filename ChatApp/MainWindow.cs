@@ -31,7 +31,7 @@ namespace ChatApp
 
         private void disconnectToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            Server.DisconnectClients();
+            this.Close();
         }
     }
 }

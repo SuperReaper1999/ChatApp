@@ -11,7 +11,7 @@ namespace ChatApp
     class ClientRecvLoop
     {
         public TcpClient tcpClient;
-        public Form mainWindow;
+        public MainWindow mainWindow;
 
         public void ReadLoop()
         {
@@ -37,8 +37,7 @@ namespace ChatApp
                     }
                 }
                 Console.WriteLine("Client receive Loop ended!");
-                //mainWindow.Close();
-                //mainWindow.BeginInvoke(new Action() => mainWindow.Close());
+
                 mainWindow.Invoke((MethodInvoker)delegate
                 {
                     // close the form on the forms thread
@@ -52,7 +51,7 @@ namespace ChatApp
             }
         }
 
-        public ClientRecvLoop(TcpClient client, Form window)
+        public ClientRecvLoop(TcpClient client, MainWindow window)
         {
             tcpClient = client;
             mainWindow = window;

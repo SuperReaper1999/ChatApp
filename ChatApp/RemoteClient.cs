@@ -34,6 +34,7 @@ namespace ChatApp
                         clientName = Encoding.UTF8.GetString(bytes, 0, i);
                         hasRecievedUsername = true;
                         Console.WriteLine("Received username!");
+                        Console.WriteLine("Remote Client started with username : " + clientName);
                     }
                     // Translates data bytes to UTF8 string.
                     data = Encoding.UTF8.GetString(bytes, 0, i);

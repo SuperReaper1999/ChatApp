@@ -29,9 +29,6 @@ namespace ChatApp
             try
             {
                 TcpClient tcpClient = new TcpClient(ipBox.Text, Server.portNumber);
-                NetworkStream stream = tcpClient.GetStream();
-                byte[] msg = Encoding.UTF8.GetBytes(usernameTextBox.Text);
-                stream.Write(msg, 0, msg.Length);
                 MainWindow ChatWindow = new MainWindow();
                 this.Hide();
                 ChatWindow.ShowDialog();
@@ -41,7 +38,7 @@ namespace ChatApp
             }
             catch (Exception exception)
             {
-                Console.WriteLine("SocketException: {0}", exception);
+                Console.WriteLine(this + "SocketException: {0}", exception);
             }
         }
 
@@ -55,7 +52,7 @@ namespace ChatApp
         private void ChatSessionWindow_FormClosing(object sender, FormClosingEventArgs e)
         {
             Server.DisconnectClients();
-            Console.WriteLine("Hey I closed!" + this);
+            Console.WriteLine("Chat session window closed, all clients disconnected!" + this);
         }
     }
 }

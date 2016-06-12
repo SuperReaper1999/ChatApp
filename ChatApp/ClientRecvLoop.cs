@@ -29,14 +29,14 @@ namespace ChatApp
                 {
                     // Translates data bytes to UTF8 string.
                     data = Encoding.UTF8.GetString(bytes, 0, i);
-                    Console.WriteLine("Recieved: {0}", data);
+                    Console.WriteLine(this + "Recieved: {0}", data);
                 }
-                Console.WriteLine("the loop has ended!");
+                Console.WriteLine("Client receive Loop ended!");
                 mainWindow.Close();
             }
             catch (Exception e)
             {
-                Console.WriteLine("SocketException: {0}", e);
+                Console.WriteLine(this + "SocketException: {0}", e);
             }
         }
 

@@ -35,9 +35,6 @@ namespace ChatApp
                     TcpClient client = connectionListener.AcceptTcpClient();
                     Console.WriteLine("Fucking connected!" + client.Client.RemoteEndPoint);
                     RemoteClient cl = new RemoteClient(client);
-                    NetworkStream stream = cl.tcpClient.GetStream();
-                    byte[] msg = Encoding.UTF8.GetBytes("hello, you have connected you cunt!");
-                    stream.Write(msg, 0, msg.Length);
                     connectedClients.Add(cl);
                     Thread clientThread = new Thread(new ThreadStart(cl.ReadLoop));
                     clientThread.Start();

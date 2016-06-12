@@ -47,14 +47,13 @@ namespace ChatApp
         }
         public static void DisconnectClients()
         {
-            foreach (RemoteClient c in connectedClients)
-            {
-                Console.WriteLine("Server forcibly disconnecting " + c.clientName + c.tcpClient.Client.RemoteEndPoint);
-                c.Disconnect(); 
-            }
             if (connectionListener != null)
             {
                 connectionListener.Stop();
+                foreach (RemoteClient c in connectedClients)
+                {
+                    c.Disconnect();
+                }
             }
         }
     }

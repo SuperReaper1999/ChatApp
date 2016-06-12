@@ -35,9 +35,9 @@ namespace ChatApp
             this.toolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.fileToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.exitToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.sendButton = new System.Windows.Forms.Button();
             this.serverToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.disconnectToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.sendButton = new System.Windows.Forms.Button();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -95,9 +95,18 @@ namespace ChatApp
             // exitToolStripMenuItem
             // 
             this.exitToolStripMenuItem.Name = "exitToolStripMenuItem";
-            this.exitToolStripMenuItem.Size = new System.Drawing.Size(92, 22);
+            this.exitToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.exitToolStripMenuItem.Text = "Exit";
             this.exitToolStripMenuItem.Click += new System.EventHandler(this.exitToolStripMenuItem_Click);
+            // 
+            // sendButton
+            // 
+            this.sendButton.Location = new System.Drawing.Point(832, 448);
+            this.sendButton.Name = "sendButton";
+            this.sendButton.Size = new System.Drawing.Size(52, 38);
+            this.sendButton.TabIndex = 4;
+            this.sendButton.Text = "Send";
+            this.sendButton.UseVisualStyleBackColor = true;
             // 
             // serverToolStripMenuItem
             // 
@@ -110,18 +119,9 @@ namespace ChatApp
             // disconnectToolStripMenuItem
             // 
             this.disconnectToolStripMenuItem.Name = "disconnectToolStripMenuItem";
-            this.disconnectToolStripMenuItem.Size = new System.Drawing.Size(133, 22);
+            this.disconnectToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.disconnectToolStripMenuItem.Text = "Disconnect";
             this.disconnectToolStripMenuItem.Click += new System.EventHandler(this.disconnectToolStripMenuItem_Click);
-            // 
-            // sendButton
-            // 
-            this.sendButton.Location = new System.Drawing.Point(832, 448);
-            this.sendButton.Name = "sendButton";
-            this.sendButton.Size = new System.Drawing.Size(52, 38);
-            this.sendButton.TabIndex = 4;
-            this.sendButton.Text = "Send";
-            this.sendButton.UseVisualStyleBackColor = true;
             // 
             // MainWindow
             // 
@@ -136,7 +136,7 @@ namespace ChatApp
             this.MainMenuStrip = this.menuStrip1;
             this.Name = "MainWindow";
             this.Text = "Conner Chat";
-            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.MainWindow_FormClosing);
+            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.MainWindow_FormClosed);
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
             this.ResumeLayout(false);

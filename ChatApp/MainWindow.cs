@@ -22,22 +22,16 @@ namespace ChatApp
             Application.Exit();
         }
 
-        private void disconnectToolStripMenuItem_Click(object sender, EventArgs e)
+        private void MainWindow_FormClosed(object sender, FormClosedEventArgs e)
         {
-            CloseAndDisconnect(this);
-        }
-
-        public static void CloseAndDisconnect(MainWindow window)
-        {
-            window.Close(); // Stack overflow here.
-            Console.WriteLine("Hey I (The main window) closed!");
+            Console.WriteLine("Hey I closed!");
             ChatSessionWindow.chatSessionWindow.Show();
             Server.DisconnectClients();
         }
 
-        private void MainWindow_FormClosing(object sender, FormClosingEventArgs e)
+        private void disconnectToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            CloseAndDisconnect(this);
+            this.Close();
         }
     }
 }

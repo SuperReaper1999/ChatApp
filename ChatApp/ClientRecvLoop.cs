@@ -37,7 +37,14 @@ namespace ChatApp
                     }
                 }
                 Console.WriteLine("Client receive Loop ended!");
-                mainWindow.Close();
+                //mainWindow.Close();
+                //mainWindow.BeginInvoke(new Action() => mainWindow.Close());
+                mainWindow.Invoke((MethodInvoker)delegate
+                {
+                    // close the form on the forms thread
+                    mainWindow.Close();
+                });
+
             }
             catch (Exception e)
             {

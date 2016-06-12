@@ -24,15 +24,16 @@ namespace ChatApp
             int i;
             try
             {
-                // Loop to recieve all data sent by the client.
+                // Loop to recieve all data sent by the server.
                 while ((i = stream.Read(bytes, 0, bytes.Length)) != 0)
                 {
+                    Console.WriteLine("ClientRecvLoop is running happily?"); // only runs once the client is closed.
                     // Translates data bytes to UTF8 string.
                     data = Encoding.UTF8.GetString(bytes, 0, i);
                     Console.WriteLine(this + "Recieved: {0}", data);
                     if (data == "hello, you have connected you cunt!")
                     {
-                        Console.WriteLine("recieved Connected message, current connection status = " + tcpClient.Connected);
+                        Console.WriteLine("recieved Connected message, current connection status = " + tcpClient.Connected); // Currently this is only recieved when the client is closed for some reason and it also returns the clients connected status as true.
                     }
                 }
                 Console.WriteLine("Client receive Loop ended!");

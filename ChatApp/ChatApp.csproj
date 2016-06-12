@@ -67,6 +67,7 @@
     <Compile Include="ChatSessionWindow.Designer.cs">
       <DependentUpon>ChatSessionWindow.cs</DependentUpon>
     </Compile>
+    <Compile Include="MessageHandler.cs" />
     <Compile Include="RemoteClient.cs" />
     <Compile Include="ClientRecvLoop.cs" />
     <Compile Include="MainWindow.cs">

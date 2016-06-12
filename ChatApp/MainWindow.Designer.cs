@@ -29,15 +29,15 @@ namespace ChatApp
         private void InitializeComponent()
         {
             this.messageBox = new System.Windows.Forms.TextBox();
-            this.userList = new System.Windows.Forms.ListBox();
             this.chatHistory = new System.Windows.Forms.RichTextBox();
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.toolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.fileToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.exitToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.sendButton = new System.Windows.Forms.Button();
             this.serverToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.disconnectToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.sendButton = new System.Windows.Forms.Button();
+            this.userList = new System.Windows.Forms.ListBox();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -49,14 +49,6 @@ namespace ChatApp
             this.messageBox.Name = "messageBox";
             this.messageBox.Size = new System.Drawing.Size(616, 38);
             this.messageBox.TabIndex = 0;
-            // 
-            // userList
-            // 
-            this.userList.FormattingEnabled = true;
-            this.userList.Location = new System.Drawing.Point(13, 26);
-            this.userList.Name = "userList";
-            this.userList.Size = new System.Drawing.Size(191, 459);
-            this.userList.TabIndex = 1;
             // 
             // chatHistory
             // 
@@ -95,18 +87,9 @@ namespace ChatApp
             // exitToolStripMenuItem
             // 
             this.exitToolStripMenuItem.Name = "exitToolStripMenuItem";
-            this.exitToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.exitToolStripMenuItem.Size = new System.Drawing.Size(92, 22);
             this.exitToolStripMenuItem.Text = "Exit";
             this.exitToolStripMenuItem.Click += new System.EventHandler(this.exitToolStripMenuItem_Click);
-            // 
-            // sendButton
-            // 
-            this.sendButton.Location = new System.Drawing.Point(832, 448);
-            this.sendButton.Name = "sendButton";
-            this.sendButton.Size = new System.Drawing.Size(52, 38);
-            this.sendButton.TabIndex = 4;
-            this.sendButton.Text = "Send";
-            this.sendButton.UseVisualStyleBackColor = true;
             // 
             // serverToolStripMenuItem
             // 
@@ -119,9 +102,27 @@ namespace ChatApp
             // disconnectToolStripMenuItem
             // 
             this.disconnectToolStripMenuItem.Name = "disconnectToolStripMenuItem";
-            this.disconnectToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.disconnectToolStripMenuItem.Size = new System.Drawing.Size(133, 22);
             this.disconnectToolStripMenuItem.Text = "Disconnect";
             this.disconnectToolStripMenuItem.Click += new System.EventHandler(this.disconnectToolStripMenuItem_Click);
+            // 
+            // sendButton
+            // 
+            this.sendButton.Location = new System.Drawing.Point(832, 448);
+            this.sendButton.Name = "sendButton";
+            this.sendButton.Size = new System.Drawing.Size(52, 38);
+            this.sendButton.TabIndex = 4;
+            this.sendButton.Text = "Send";
+            this.sendButton.UseVisualStyleBackColor = true;
+            this.sendButton.Click += new System.EventHandler(this.sendButton_Click);
+            // 
+            // userList
+            // 
+            this.userList.FormattingEnabled = true;
+            this.userList.Location = new System.Drawing.Point(13, 26);
+            this.userList.Name = "userList";
+            this.userList.Size = new System.Drawing.Size(191, 459);
+            this.userList.TabIndex = 1;
             // 
             // MainWindow
             // 
@@ -147,7 +148,6 @@ namespace ChatApp
         #endregion
 
         private System.Windows.Forms.TextBox messageBox;
-        private System.Windows.Forms.ListBox userList;
         private System.Windows.Forms.RichTextBox chatHistory;
         private System.Windows.Forms.MenuStrip menuStrip1;
         private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem1;
@@ -156,6 +156,7 @@ namespace ChatApp
         private System.Windows.Forms.Button sendButton;
         private System.Windows.Forms.ToolStripMenuItem serverToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem disconnectToolStripMenuItem;
+        private System.Windows.Forms.ListBox userList;
     }
 }
 

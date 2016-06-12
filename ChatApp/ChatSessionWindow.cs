@@ -30,14 +30,12 @@ namespace ChatApp
             {
                 TcpClient tcpClient = new TcpClient(ipBox.Text, Server.portNumber);
                 NetworkStream stream = tcpClient.GetStream();
-                MainWindow ChatWindow = new MainWindow();
-                ClientRecvLoop clientRecLoop = new ClientRecvLoop(tcpClient, ChatWindow);
+                ClientRecvLoop clientRecLoop = new ClientRecvLoop(tcpClient);
                 Thread clientRecLoopThread = new Thread(new ThreadStart(clientRecLoop.ReadLoop)); 
                 clientRecLoopThread.Start();
                 byte[] msg = Encoding.UTF8.GetBytes(usernameTextBox.Text);
                 stream.Write(msg, 0, msg.Length);
                 this.Hide();
-                ChatWindow.ShowDialog();// Code placed after this will only run once the chat window is closed!
             }
             catch (Exception exception)
             {

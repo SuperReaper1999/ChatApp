@@ -31,15 +31,21 @@ namespace ChatApp
                 {
                     if (!hasRecievedUsername)
                     {
+                        Console.WriteLine(tcpClient.Connected + "1");
                         clientName = Encoding.UTF8.GetString(bytes, 0, i);
                         hasRecievedUsername = true;
                         Console.WriteLine("Received username!");
                         Console.WriteLine("Remote Client started with username : " + clientName);
+                        NetworkStream str = tcpClient.GetStream();
+                        byte[] msg = Encoding.UTF8.GetBytes("hello, you have connected you cunt!");
+                        str.Write(msg, 0, msg.Length);
+                        Console.WriteLine(tcpClient.Connected + "2");
                     }
                     // Translates data bytes to UTF8 string.
                     data = Encoding.UTF8.GetString(bytes, 0, i);
                     Console.WriteLine("Recieved: {0}", data);
                 }
+                Console.WriteLine(this + "Remote client Recieve loop closed!");
             }
             catch (Exception e)
             {

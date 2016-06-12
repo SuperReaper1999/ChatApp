@@ -29,6 +29,9 @@ namespace ChatApp
             try
             {
                 TcpClient tcpClient = new TcpClient(ipBox.Text, Server.portNumber);
+                NetworkStream stream = tcpClient.GetStream();
+                byte[] msg = Encoding.UTF8.GetBytes(usernameTextBox.Text);
+                stream.Write(msg, 0, msg.Length);
                 MainWindow ChatWindow = new MainWindow();
                 this.Hide();
                 ChatWindow.ShowDialog();

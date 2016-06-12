@@ -30,6 +30,10 @@ namespace ChatApp
                     // Translates data bytes to UTF8 string.
                     data = Encoding.UTF8.GetString(bytes, 0, i);
                     Console.WriteLine(this + "Recieved: {0}", data);
+                    if (data == "hello, you have connected you cunt!")
+                    {
+                        Console.WriteLine("recieved Connected message, current connection status = " + tcpClient.Connected);
+                    }
                 }
                 Console.WriteLine("Client receive Loop ended!");
                 mainWindow.Close();

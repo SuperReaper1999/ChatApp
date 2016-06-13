@@ -148,7 +148,6 @@ namespace ChatApp
         #endregion
 
         private System.Windows.Forms.TextBox messageBox;
-        private System.Windows.Forms.RichTextBox chatHistory;
         private System.Windows.Forms.MenuStrip menuStrip1;
         private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem1;
         private System.Windows.Forms.ToolStripMenuItem exitToolStripMenuItem;
@@ -157,6 +156,7 @@ namespace ChatApp
         private System.Windows.Forms.ToolStripMenuItem serverToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem disconnectToolStripMenuItem;
         private System.Windows.Forms.ListBox userList;
+        public System.Windows.Forms.RichTextBox chatHistory;
     }
 }
 

@@ -15,6 +15,7 @@ namespace ChatApp
     {
         public TcpClient tcpClient;
         public RemoteClient remoteClient;
+        public string myName;
 
         MessageHandler messageHandler = new MessageHandler();
         public MainWindow()
@@ -42,7 +43,7 @@ namespace ChatApp
 
         private void sendButton_Click(object sender, EventArgs e)
         {
-            messageHandler.SendMessage(messageBox.Text, tcpClient);
+            messageHandler.SendMessage(myName + ": " + messageBox.Text, tcpClient);
         }
     }
 }

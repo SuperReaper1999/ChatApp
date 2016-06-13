@@ -12,6 +12,7 @@ namespace ChatApp
     {
         public TcpClient tcpClient;
         public MainWindow mainWindow;
+        public bool isInitialConnection = true;
 
         public void ReadLoop()
         {
@@ -30,10 +31,18 @@ namespace ChatApp
                     Console.WriteLine("ClientRecvLoop is running happily?");
                     // Translates data bytes to UTF8 string.
                     data = Encoding.UTF8.GetString(bytes, 0, i);
-                    Console.WriteLine(this + "Recieved: {0}", data);
-                    if (data == "hello, you have connected you cunt!")
+                    Console.WriteLine("Client Recieved: {0}", data);
+                    mainWindow.Invoke((MethodInvoker)delegate
                     {
-                        Console.WriteLine("Recieved initial connection message, current connection status = " + tcpClient.Connected);
+                        // Updates the chat history from the forms thread.
+                        mainWindow.chatHistory.AppendText(data);
+                    });
+                    if (data.Contains("Server: Hello, you have connected you cunt! Your name is :") && isInitialConnection)
+                    {
+                        string[] dataSplit = data.Split(':');
+                        mainWindow.myName = dataSplit[dataSplit.Length - 1];
+                        Console.WriteLine("Recieved initial connection message, current connection status = " + tcpClient.Connected + " and username = " + mainWindow.myName);
+                        isInitialConnection = false;
                     }
                 }
                 Console.WriteLine("Client receive Loop ended!");

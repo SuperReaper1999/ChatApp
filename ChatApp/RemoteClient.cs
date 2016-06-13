@@ -36,13 +36,13 @@ namespace ChatApp
                         Console.WriteLine("Received username!");
                         Console.WriteLine("Remote Client started with username : " + clientName);
                         NetworkStream str = tcpClient.GetStream();
-                        byte[] msg = Encoding.UTF8.GetBytes("hello, you have connected you cunt!");
+                        byte[] msg = Encoding.UTF8.GetBytes("Server: Hello, you have connected you cunt! Your name is : " + clientName);
                         str.Write(msg, 0, msg.Length);
                         Console.WriteLine(tcpClient.Connected + "connection status");
                     }
                     // Translates data bytes to UTF8 string.
                     data = Encoding.UTF8.GetString(bytes, 0, i);
-                    Console.WriteLine("Recieved: {0}", data);
+                    Console.WriteLine("Server Recieved: {0}", data);
                 }
                 Console.WriteLine(this + "Remote client Recieve loop closed!");
             }

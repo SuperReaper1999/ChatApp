@@ -43,6 +43,7 @@ namespace ChatApp
                     // Translates data bytes to UTF8 string.
                     data = Encoding.UTF8.GetString(bytes, 0, i);
                     Console.WriteLine("Server Recieved: {0}", data);
+                    Server.SendMessagesToClients(data);
                 }
                 Console.WriteLine(this + "Remote client Recieve loop closed!");
             }

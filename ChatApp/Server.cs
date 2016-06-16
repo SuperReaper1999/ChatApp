@@ -45,6 +45,18 @@ namespace ChatApp
                 Console.WriteLine("SocketException: {0}", e);
             }
         }
+
+        public static void SendMessagesToClients(string MessageToSend)
+        {
+            foreach (RemoteClient c in connectedClients)
+            {
+                // Handle sending messages here need the thing that recieves messages from clients to start thius
+                NetworkStream str = c.tcpClient.GetStream();
+                byte[] msg = Encoding.UTF8.GetBytes(MessageToSend);
+                str.Write(msg, 0, msg.Length);
+            }
+        }
+
         public static void DisconnectClients()
         {
             if (connectionListener != null)

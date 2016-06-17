@@ -49,6 +49,7 @@ namespace ChatApp
             this.messageBox.Name = "messageBox";
             this.messageBox.Size = new System.Drawing.Size(616, 38);
             this.messageBox.TabIndex = 0;
+            this.messageBox.KeyDown += new System.Windows.Forms.KeyEventHandler(this.messageBox_KeyDown);
             // 
             // chatHistory
             // 

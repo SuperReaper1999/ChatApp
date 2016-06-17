@@ -43,7 +43,21 @@ namespace ChatApp
 
         private void sendButton_Click(object sender, EventArgs e)
         {
-            messageHandler.SendMessage(myName + ": " + messageBox.Text, tcpClient);
+            if (!string.IsNullOrWhiteSpace(messageBox.Text))
+            {
+                messageHandler.SendMessage(myName + ": " + messageBox.Text, tcpClient);
+                messageBox.Clear();
+            }
+        }
+
+        private void messageBox_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                e.SuppressKeyPress = true;
+                e.Handled = true;
+                sendButton_Click(null,null);
+            }
         }
     }
 }

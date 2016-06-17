@@ -40,11 +40,14 @@ namespace ChatApp
                         str.Write(msg, 0, msg.Length);
                         Console.WriteLine(tcpClient.Connected + "connection status");
                     }
-                    // Translates data bytes to UTF8 string.
-                    data = Encoding.UTF8.GetString(bytes, 0, i);
-                    Console.WriteLine("Server Recieved: {0}", data);
-                    // Sends message data to all clients (currently this causes user to have their name twice)
-                    Server.SendMessagesToClients(data);
+                    else
+                    {
+                        // Translates data bytes to UTF8 string.
+                        data = Encoding.UTF8.GetString(bytes, 0, i);
+                        Console.WriteLine("Server Recieved: {0}", data);
+                        // Sends message data to all clients (currently this causes user to have their name twice)
+                        Server.SendMessagesToClients(data);
+                    }
                 }
                 Console.WriteLine(this + "Remote client Recieve loop closed!");
             }

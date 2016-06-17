@@ -45,6 +45,7 @@ namespace ChatApp
             // 
             this.messageBox.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.messageBox.Location = new System.Drawing.Point(210, 448);
+            this.messageBox.MaxLength = 512;
             this.messageBox.Multiline = true;
             this.messageBox.Name = "messageBox";
             this.messageBox.Size = new System.Drawing.Size(616, 38);
@@ -59,6 +60,7 @@ namespace ChatApp
             this.chatHistory.Size = new System.Drawing.Size(673, 415);
             this.chatHistory.TabIndex = 2;
             this.chatHistory.Text = "";
+            this.chatHistory.TextChanged += new System.EventHandler(this.chatHistory_TextChanged);
             // 
             // menuStrip1
             // 

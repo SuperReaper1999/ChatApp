@@ -59,5 +59,10 @@ namespace ChatApp
                 sendButton_Click(null,null);
             }
         }
+
+        private void chatHistory_TextChanged(object sender, EventArgs e)
+        {
+            chatHistory.ScrollToCaret();
+        }
     }
 }

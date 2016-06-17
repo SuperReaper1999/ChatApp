@@ -39,6 +39,7 @@ namespace ChatApp
                         byte[] msg = Encoding.UTF8.GetBytes("Server: Hello, you have connected you cunt! Your name is : " + clientName);
                         str.Write(msg, 0, msg.Length);
                         Console.WriteLine(tcpClient.Connected + "connection status");
+                        //Server.SendMessagesToClients(clientName + " Connected to the server!");
                     }
                     else
                     {

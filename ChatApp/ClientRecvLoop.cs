@@ -32,12 +32,14 @@ namespace ChatApp
                     // Translates data bytes to UTF8 string.
                     data = Encoding.UTF8.GetString(bytes, 0, i);
                     Console.WriteLine("Client Recieved: {0}", data);
+
                     mainWindow.Invoke((MethodInvoker)delegate
                     {
                         // Updates the chat history from the forms thread.
                         mainWindow.chatHistory.AppendText(data);
                         mainWindow.chatHistory.AppendText(Environment.NewLine);
                     });
+
                     if (data.Contains("Server: Hello, you have connected you cunt! Your name is :") && isInitialConnection)
                     {
                         string[] dataSplit = data.Split(':');

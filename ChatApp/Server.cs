@@ -23,6 +23,9 @@ namespace ChatApp
 
                 connectionListener = new TcpListener(localAddr, portNumber);
 
+                // Without clearing this list the server/clients will not recieve any messages if the server is restarted without restarting the program.
+                connectedClients.Clear();
+
                 // Start listening for client requests.
                 connectionListener.Start();
 
@@ -37,6 +40,7 @@ namespace ChatApp
                     RemoteClient cl = new RemoteClient(client);
                     connectedClients.Add(cl);
                     Thread clientThread = new Thread(new ThreadStart(cl.ReadLoop));
+                    clientThread.IsBackground = true;
                     clientThread.Start();
                 }
             }

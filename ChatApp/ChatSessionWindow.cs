@@ -31,7 +31,8 @@ namespace ChatApp
                 TcpClient tcpClient = new TcpClient(ipBox.Text, Server.portNumber);
                 NetworkStream stream = tcpClient.GetStream();
                 ClientRecvLoop clientRecLoop = new ClientRecvLoop(tcpClient);
-                Thread clientRecLoopThread = new Thread(new ThreadStart(clientRecLoop.ReadLoop)); 
+                Thread clientRecLoopThread = new Thread(new ThreadStart(clientRecLoop.ReadLoop));
+                clientRecLoopThread.IsBackground = true;
                 clientRecLoopThread.Start();
                 byte[] msg = Encoding.UTF8.GetBytes(usernameTextBox.Text);
                 stream.Write(msg, 0, msg.Length);
@@ -47,6 +48,7 @@ namespace ChatApp
         {
             Server server = new Server();
             Thread serverThread = new Thread(new ThreadStart(server.Main));
+            serverThread.IsBackground = true;
             serverThread.Start();
         }
 

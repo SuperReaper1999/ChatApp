@@ -36,6 +36,7 @@ namespace ChatApp
                     {
                         // Updates the chat history from the forms thread.
                         mainWindow.chatHistory.AppendText(data);
+                        mainWindow.chatHistory.AppendText(Environment.NewLine);
                     });
                     if (data.Contains("Server: Hello, you have connected you cunt! Your name is :") && isInitialConnection)
                     {
